@@ -24,6 +24,7 @@ Ferramentas
 * [Janvas]  - Editor de imagens (favicon)
 * [CodePen] - Editor de layout
 * [Heroku]  - Deploy/Server
+* [Dillinger] - Editor de markdown
 
 
 
@@ -44,3 +45,4 @@ MIT
 [CodePen]:http://CodePen.io
 [Demo]:http://scrum-poker-falci.herokuapp.com/
 [Heroku]:http://heroku.com
+[Dillinger]:http://dillinger.io/

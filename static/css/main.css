@@ -10,6 +10,11 @@ body{
     margin-bottom: 24px;
 }
 
+.git{
+    margin: 10px auto 0 auto;
+    width: 48px;
+}
+
 .header, label{
     color: #FFF;
     font-family: 'Varela Round', sans-serif;
