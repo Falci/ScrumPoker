@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Varela+Round);
+
 html{
   position: relative;
   min-height: 100%;
@@ -5,10 +7,12 @@ html{
 
 body{
     background-color: #6f5499;
+    margin-bottom: 24px;
 }
 
 .header, label{
     color: #FFF;
+    font-family: 'Varela Round', sans-serif;
 }
 
 #cards button[data-value] {
