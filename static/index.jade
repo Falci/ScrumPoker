@@ -14,7 +14,7 @@ html(lang="pt_BR")
   body
     .container 
         h1.header Scrum Poker
-        #login.col-md-6.hidden
+        #login.col-md-6
             form(onSubmit='return false')
                 .form-group
                     label(for='user') Usuário
@@ -41,7 +41,7 @@ html(lang="pt_BR")
                         .modal-footer.hidden
                             button.btn.btn-default(data-dismiss="modal") Fechar
                 
-        #cards.col-md-6
+        #cards.col-md-6.hidden
             .row
                 .wrapper-3
                     button.btn.btn-primary.btn-lg(data-value='0') 0
