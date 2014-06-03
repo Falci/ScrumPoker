@@ -15,7 +15,7 @@ socket.on('connect',function(){
       
 }).on('welcome', function(data){
     $('#modalLogin .modal-header h4').html("Bem vindo!");
-    $('#modalLogin .modal-body p').html("Sala criada");
+    $('#modalLogin .modal-body p').html("Sala criada.<br />Aguardando mais pessoas...");
       
 }).on('user-in', function(data){
     $('#modalLogin').modal('hide');

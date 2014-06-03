@@ -14,7 +14,7 @@ html(lang="pt_BR")
   body
     .container 
         h1.header Scrum Poker
-        #login.col-md-6
+        #login.col-md-6.hidden
             form(onSubmit='return false')
                 .form-group
                     label(for='user') Usuário
@@ -41,27 +41,41 @@ html(lang="pt_BR")
                         .modal-footer.hidden
                             button.btn.btn-default(data-dismiss="modal") Fechar
                 
-        #cards.col-md-6.hidden
+        #cards.col-md-6
             .row
-                button.btn.btn-primary.btn-lg.col-md-2.col-xs-3(data-value='0') 0
-                button.btn.btn-primary.btn-lg.col-md-2.col-xs-3(data-value='0.5') &#0189;
-                button.btn.btn-primary.btn-lg.col-md-2.col-xs-3(data-value='1') 1
+                .wrapper-3
+                    button.btn.btn-primary.btn-lg(data-value='0') 0
+                .wrapper-3
+                    button.btn.btn-primary.btn-lg(data-value='0.5') &#0189;
+                .wrapper-3
+                    button.btn.btn-primary.btn-lg(data-value='1') 1
             .row
-                button.btn.btn-primary.btn-lg.col-md-2.col-xs-3(data-value='2') 2
-                button.btn.btn-primary.btn-lg.col-md-2.col-xs-3(data-value='3') 3
-                button.btn.btn-primary.btn-lg.col-md-2.col-xs-3(data-value='5') 5
+                .wrapper-3
+                    button.btn.btn-primary.btn-lg(data-value='2') 2
+                .wrapper-3
+                    button.btn.btn-primary.btn-lg(data-value='3') 3
+                .wrapper-3
+                    button.btn.btn-primary.btn-lg(data-value='5') 5
             .row
-                button.btn.btn-primary.btn-lg.col-md-2.col-xs-3(data-value='8') 8
-                button.btn.btn-primary.btn-lg.col-md-2.col-xs-3(data-value='13') 13
-                button.btn.btn-primary.btn-lg.col-md-2.col-xs-3(data-value='20') 20      
+                .wrapper-3
+                    button.btn.btn-primary.btn-lg(data-value='8') 8
+                .wrapper-3
+                    button.btn.btn-primary.btn-lg(data-value='13') 13
+                .wrapper-3
+                    button.btn.btn-primary.btn-lg(data-value='20') 20      
             .row
-                button.btn.btn-primary.btn-lg.col-md-3.col-xs-4(data-value='40') 40
-                button.btn.btn-primary.btn-lg.col-md-3.col-xs-5(data-value='100') 100
+                .wrapper-2
+                    button.btn.btn-primary.btn-lg(data-value='40') 40
+                .wrapper-2
+                    button.btn.btn-primary.btn-lg(data-value='100') 100
             .row
-                button.btn.btn-primary.btn-lg.col-md-2.col-xs-3(data-value='101') &#x221e;
-                button.btn.btn-primary.btn-lg.col-md-2.col-xs-3(data-value='102') ?
-                button.btn.btn-primary.btn-lg.col-md-2.col-xs-3(data-value='103')
-                    span.glyphicon.glyphicon-time
+                .wrapper-3
+                    button.btn.btn-primary.btn-lg(data-value='101') &#x221e;
+                .wrapper-3
+                    button.btn.btn-primary.btn-lg(data-value='102') ?
+                .wrapper-3
+                    button.btn.btn-primary.btn-lg(data-value='103')
+                        span.glyphicon.glyphicon-time
                     
             #wait.modal.fade(data-backdrop='static')
                 .modal-dialog
@@ -76,5 +90,5 @@ html(lang="pt_BR")
                             button.btn.btn-default(data-dismiss="modal") Trocar
                     
     #footer
-        .container
+        .container.col-md-6
             p.text-muted Conectando...

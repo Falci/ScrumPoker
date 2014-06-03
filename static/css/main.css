@@ -7,14 +7,27 @@ body{
     background-color: #6f5499;
 }
 
-h1.header, label{
+.header, label{
     color: #FFF;
 }
 
-#cards .row button {
-  margin: 5px;
+#cards button[data-value] {
   font-size: 2em;
   min-height: 100%;
+  min-width: 100%;
+}
+
+.wrapper-2, .wrapper-3{
+    display: inline-block;
+    padding: 5px 5px;
+}
+
+#cards .wrapper-3{
+    width: 33.3%;
+}
+
+#cards .wrapper-2{
+    width: 50%;
 }
 
 #footer {
