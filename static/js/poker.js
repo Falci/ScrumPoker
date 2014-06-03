@@ -61,7 +61,7 @@ socket.on('connect',function(){
         html = '<span class="btn btn-primary glyphicon glyphicon-time"></span> '+valores[Especial.Time].join(", ")+"<br />";
         
     } else if(valores[Especial.Question]){
-        html = '<span class="btn btn-primary">?</span: '+valores[Especial.Question].join(", ")+"<br />";
+        html = '<span class="btn btn-primary">?</span> '+valores[Especial.Question].join(", ")+"<br />";
         
     } else if(valores[Especial.Infinito]){
         html = '<span class="btn btn-primary">&#x221e</span> '+valores[Especial.Infinito].join(", ")+"<br />";
@@ -75,8 +75,8 @@ socket.on('connect',function(){
         var strMax = (max == 0.5) ? '&#0189' : max;
         
         html += '<span class="glyphicon glyphicon-hand-up"></span> <span class="btn btn-primary">'+strMax+"</span> "+valores[max].join(", ")+"<br />";
-        html += '<span class="glyphicon glyphicon-hand-right"></span> <span class="btn btn-primary">'+(soma/itens).toFixed(2)+'</span>';
-        html += '<span class="glyphicon glyphicon-hand-down"></span> <span class="btn btn-primary">'+strMin+"</span> "+valores[min].join(", ")+"<br />";
+        html += '<span class="glyphicon glyphicon-hand-right"></span> <span class="btn btn-primary">'+(soma/itens).toFixed(2)+'</span><br />';
+        html += '<span class="glyphicon glyphicon-hand-down"></span> <span class="btn btn-primary">'+strMin+"</span> "+valores[min].join(", ");
     }
       
     $('#wait .modal-header h4').html("Resultado");
@@ -89,6 +89,10 @@ socket.on('connect',function(){
 $(function(){
     $("#login form").on('submit', function(e){
         e.preventDefault();
+        
+        if($("#user").val() == ""){
+            return false;
+        }
      
         socket.emit('room', {
             room: $("#room").val(), 
