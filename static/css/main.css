@@ -1,0 +1,24 @@
+html{
+  position: relative;
+  min-height: 100%;
+}
+
+body{
+    background-color: #6f5499;
+}
+
+h1.header, label{
+    color: #FFF;
+}
+
+#cards .row button {
+  margin: 5px;
+  font-size: 2em;
+  min-height: 100%;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}

@@ -1,0 +1,80 @@
+doctype html
+html(lang="pt_BR")
+  head
+    title Scrum Poker
+    meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+    link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css')
+    link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css')
+    link(rel='stylesheet', href='/css/main.css')
+    
+    script(src='//code.jquery.com/jquery-1.11.1.min.js')
+    script(src='//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js')
+    script(src='/socket.io/socket.io.js')
+    script(src='/js/poker.js')
+  body
+    .container 
+        h1.header Scrum Poker
+        #login.col-md-6
+            form(onSubmit='return false')
+                .form-group
+                    label(for='user') Usuário
+                    input.form-control#user(placeholder='Usuário', required)
+                    
+                .form-group
+                    label(for='room') Sala
+                    input.form-control#room(placeholder='Sala')
+                    
+                .form-group
+                    label(for='pass') Senha
+                    input.form-control#pass(placeholder='Senha', type='password')
+                    
+                input.btn.btn-default(type='submit', value='Entrar', data-toggle="modal", data-target="#modalLogin", disabled)
+                        
+            #modalLogin.modal.fade(data-backdrop='static')
+                .modal-dialog
+                    .modal-content
+                        .modal-header
+                            h4.modal-title  Aguarde
+                        .modal-body
+                            p. 
+                                Verificando....
+                        .modal-footer.hidden
+                            button.btn.btn-default(data-dismiss="modal") Fechar
+                
+        #cards.col-md-6.hidden
+            .row
+                button.btn.btn-primary.btn-lg.col-md-2.col-xs-3(data-value='0') 0
+                button.btn.btn-primary.btn-lg.col-md-2.col-xs-3(data-value='0.5') &#0189;
+                button.btn.btn-primary.btn-lg.col-md-2.col-xs-3(data-value='1') 1
+            .row
+                button.btn.btn-primary.btn-lg.col-md-2.col-xs-3(data-value='2') 2
+                button.btn.btn-primary.btn-lg.col-md-2.col-xs-3(data-value='3') 3
+                button.btn.btn-primary.btn-lg.col-md-2.col-xs-3(data-value='5') 5
+            .row
+                button.btn.btn-primary.btn-lg.col-md-2.col-xs-3(data-value='8') 8
+                button.btn.btn-primary.btn-lg.col-md-2.col-xs-3(data-value='13') 13
+                button.btn.btn-primary.btn-lg.col-md-2.col-xs-3(data-value='20') 20      
+            .row
+                button.btn.btn-primary.btn-lg.col-md-3.col-xs-4(data-value='40') 40
+                button.btn.btn-primary.btn-lg.col-md-3.col-xs-5(data-value='100') 100
+            .row
+                button.btn.btn-primary.btn-lg.col-md-2.col-xs-3(data-value='101') &#x221e;
+                button.btn.btn-primary.btn-lg.col-md-2.col-xs-3(data-value='102') ?
+                button.btn.btn-primary.btn-lg.col-md-2.col-xs-3(data-value='103')
+                    span.glyphicon.glyphicon-time
+                    
+            #wait.modal.fade(data-backdrop='static')
+                .modal-dialog
+                    .modal-content
+                        .modal-header
+                            h4.modal-title  Aguardando outros
+                        .modal-body
+                            p Você escolheu
+                                span 
+                                
+                        .modal-footer
+                            button.btn.btn-default(data-dismiss="modal") Trocar
+                    
+    #footer
+        .container
+            p.text-muted Conectando...
