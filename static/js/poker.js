@@ -104,6 +104,8 @@ $(function(){
             localStorage.setItem('user', $("#user").val());
             localStorage.setItem('room', $("#room").val());
         }
+        
+        $("#modalLogin").modal('show');
     
     }).find("[type=submit]").removeAttr('disabled');
     
