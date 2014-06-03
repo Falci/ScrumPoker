@@ -16,6 +16,7 @@ socket.on('connect',function(){
 }).on('welcome', function(data){
     $('#modalLogin .modal-header h4').html("Bem vindo!");
     $('#modalLogin .modal-body p').html("Sala criada.<br />Aguardando mais pessoas...");
+    analytics('createRoom', data.name);
       
 }).on('user-in', function(data){
     $('#modalLogin').modal('hide');
@@ -82,6 +83,7 @@ socket.on('connect',function(){
     $('#wait .modal-header h4').html("Resultado");
     $('#wait .modal-body p').html( html );
     $('#wait .modal-footer button').addClass('btn-success').html('Ok');
+    analytics('finish', itens);
       
 });
   
@@ -90,14 +92,15 @@ $(function(){
     $("#login form").on('submit', function(e){
         e.preventDefault();
         
-        if($("#user").val() == ""){
+        var user = $("#user").val();
+        if(user === ""){
             return false;
         }
      
         socket.emit('room', {
             room: $("#room").val(), 
             pass: $("#pass").val(),
-            user:$("#user").val()
+            user:user
         });
     
         if('localStorage' in window){
@@ -106,6 +109,7 @@ $(function(){
         }
         
         $("#modalLogin").modal('show');
+        analytics('login', user);
     
     }).find("[type=submit]").removeAttr('disabled');
     
@@ -125,6 +129,7 @@ $(function(){
         
         $('#wait .modal-body p').html( 'Você escolheu: <span class="btn btn-primary">'+valor+'</span>' );
         $('#wait .modal-footer button').removeClass('btn-success').html('Trocar');
+        analytics('vote', valor);
         
     });
     
@@ -143,4 +148,15 @@ function toast(){}
 
 function updateFooter(msg){
     $("#footer p").removeClass("hidden").html(msg);
+}
+
+function analytics(action, label){
+    if(!ga){return false;}
+        
+    ga('send', {
+        'hitType': 'event',
+        'eventCategory': 'app',
+        'eventAction': action,
+        'eventLabel' : label,
+    });
 }

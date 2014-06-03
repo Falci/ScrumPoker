@@ -21,7 +21,6 @@ Tecnologias Relacionadas
 Ferramentas
 ==
 * [Cloud 9] - IDE
-* [Janvas]  - Editor de imagens (favicon)
 * [CodePen] - Editor de layout
 * [Heroku]  - Deploy/Server
 * [Dillinger] - Editor de markdown
@@ -34,8 +33,8 @@ Licença
 
 MIT
 
-
 **Free Software, Hell Yeah!**
+
 [node.js]:http://nodejs.org
 [socket.io]:http://socket.io
 [jade]:http://jade-lang.com/
