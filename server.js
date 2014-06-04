@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var http = require('http');
+var sanitizer = require('sanitizer');
 
 var server = http.createServer(app).listen(process.env.PORT || 8888, process.env.IP || "0.0.0.0");
 
@@ -48,8 +49,8 @@ function removeRoom(room){
 
 function createRoom(data){
     var room = {
-        name: data.room,
-        pass: data.pass,
+        name: sanitizer.escape(data.room),
+        pass: sanitizer.escape(data.pass),
         cards: {},
         sockets: []
     };
@@ -80,7 +81,7 @@ function createRoom(data){
 io.sockets.on('connection', function (socket) {
     
     socket.on('room', function(data){
-        socket.user = data.user;
+        socket.user = sanitizer.escape(data.user);
         var room = findRoom(data);
         
         if(!room){
@@ -90,7 +91,7 @@ io.sockets.on('connection', function (socket) {
             
             socket.emit('welcome', {size: room.sockets.length});
             
-        } else if(room.pass != data.pass){
+        } else if(room.pass != sanitizer.escape(data.pass)){
             socket.emit('wrong');
             return false;
             
@@ -102,10 +103,9 @@ io.sockets.on('connection', function (socket) {
         }
         
     }).on('card', function(data){
-        console.log('Carta '+data.value+' de '+socket.user)
         var room = socket.room;
         
-        room.cards[ socket.user ] = data.value;
+        room.cards[ socket.user ] = sanitizer.escape(data.value);
         
         var allPlayers = true;
         room.sockets.forEach(function(socket) {
