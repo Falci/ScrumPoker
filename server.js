@@ -5,9 +5,10 @@ var http = require('http');
 var server = http.createServer(app).listen(process.env.PORT || 8888, process.env.IP || "0.0.0.0");
 
 var io = require('socket.io').listen(server);
-
 app.get('/', function (req, res) {
-  res.render(__dirname + '/static/index.jade');
+    res.render(__dirname + '/static/index.jade', {
+        'GA_CODE': process.env.GA_CODE|| 'UA-2568035-32' // google analytics
+    });
 });
 
 app.use(express.static(__dirname + '/static'));

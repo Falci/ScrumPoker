@@ -32,8 +32,8 @@ html(lang="pt_BR")
                 input.btn.btn-default(type='submit', value='Entrar', disabled)
                 
             .git
-                a(href='https://github.com/Falci/ScrumPoker')
-                    img(src='/images/github.png', alt='Github', title='Github', target='_blank')
+                a(href='https://github.com/Falci/ScrumPoker', target='_blank')
+                    img(src='/images/github.png', alt='Github', title='Github')
                         
             #modalLogin.modal.fade(data-backdrop='static')
                 .modal-dialog
@@ -104,5 +104,5 @@ html(lang="pt_BR")
           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
           })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
         
-          ga('create', 'UA-2568035-31', 'scrum-poker');
+          ga('create', '#{GA_CODE}', 'scrum-poker');
           ga('send', 'pageview');
